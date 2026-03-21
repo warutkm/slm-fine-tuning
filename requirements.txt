@@ -1,0 +1,31 @@
+# Used in demo/ask_slm.py and scripts/download_llama_3_2_1b.py
+# for model loading, tokenization and text generation
+transformers==4.39.3
+
+# Required by transformers when using device_map="auto"
+# in demo/ask_slm.py and scripts/download_llama_3_2_1b.py
+accelerate==0.28.0
+
+# Required for LLaMA tokenizer loading
+# used indirectly by AutoTokenizer in both scripts
+sentencepiece==0.2.1
+
+# Used in scripts/download_llama_3_2_1b.py
+# for login() and model download from Hugging Face
+huggingface-hub==0.23.0
+
+# Used by transformers for safe model weight loading
+# when saving and loading .safetensors files
+safetensors==0.7.0
+
+# Backend tokenizer engine used internally by transformers
+# for fast tokenization in demo/ask_slm.py
+tokenizers==0.15.2
+
+# Used internally by transformers and huggingface-hub
+# for displaying download progress
+tqdm==4.67.1
+
+# Enabled via environment variable in scripts/download_llama_3_2_1b.py
+# for faster & resumable downloads
+hf_transfer
