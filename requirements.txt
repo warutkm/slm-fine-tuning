@@ -1,31 +1,70 @@
-# Used in demo/ask_slm.py and scripts/download_llama_3_2_1b.py
-# for model loading, tokenization and text generation
-transformers==4.39.3
+# Install: pip install -r requirements.txt
 
-# Required by transformers when using device_map="auto"
-# in demo/ask_slm.py and scripts/download_llama_3_2_1b.py
-accelerate==0.28.0
-
-# Required for LLaMA tokenizer loading
-# used indirectly by AutoTokenizer in both scripts
-sentencepiece==0.2.1
+# PyTorch is installed separately — see README section 4.3
 
 # Used in scripts/download_llama_3_2_1b.py
-# for login() and model download from Hugging Face
-huggingface-hub==0.23.0
-
-# Used by transformers for safe model weight loading
-# when saving and loading .safetensors files
-safetensors==0.7.0
-
-# Backend tokenizer engine used internally by transformers
-# for fast tokenization in demo/ask_slm.py
-tokenizers==0.15.2
-
-# Used internally by transformers and huggingface-hub
-# for displaying download progress
-tqdm==4.67.1
-
-# Enabled via environment variable in scripts/download_llama_3_2_1b.py
-# for faster & resumable downloads
+huggingface-hub==0.36.2
 hf_transfer
+
+# Core ML — Training & Inference
+# src/finetune.py, demo/ask_slm.py, app/model_loader.py, app/inference.py
+
+transformers==4.46.3
+peft==0.19.1
+trl==0.12.2
+accelerate==1.13.0
+bitsandbytes==0.49.2
+safetensors==0.7.0
+sentencepiece==0.2.1
+tokenizers==0.20.3
+
+# Dataset Handling
+# src/finetune.py, src/base_eval.py, src/qa_gen.py
+
+datasets==4.8.4
+
+# PDF Parsing
+# src/parse.py
+
+PyMuPDF==1.27.2.2
+pdfminer.six==20231228
+poppler-utils==0.1.0
+
+# RAG — Vector Store & Embeddings
+# src/rag.py, src/base_eval.py (finetuned-rag mode)
+
+chromadb==1.5.8
+sentence-transformers==5.4.1
+
+# LLM Judge — Groq API
+# src/base_eval.py (judge mode)
+
+groq
+
+# Streamlit App
+# app.py, app/tab_base.py, app/tab_finetuned.py, app/tab_rag.py, app/tab_compare.py
+
+streamlit==1.56.0
+
+# Data & Utilities
+# src/qa_gen.py, src/base_eval.py, src/parse.py
+
+pandas==2.3.3
+numpy==2.0.1
+tqdm==4.67.1
+jsonlines==4.0.0
+scikit-learn==1.7.2
+
+# Config & Environment
+# config.py, all scripts
+
+python-dotenv==1.2.2
+PyYAML==6.0.2
+omegaconf==2.3.0
+
+# Misc Utilities
+# src/base_eval.py, src/qa_gen.py
+
+tenacity==9.1.4
+requests==2.32.3
+rich==14.3.3

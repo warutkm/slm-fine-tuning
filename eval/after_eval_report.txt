@@ -1,0 +1,43 @@
+================================================================
+ITA LEGAL ASSISTANT — EVALUATION REPORT  [FINE-TUNED MODEL]
+Judge: llama-3.3-70b-versatile
+================================================================
+
+── OVERALL ──────────────────────────────────────────────────
+  Records evaluated       : 202  (errors: 0)
+  Avg total score  (0-10) : 6.307
+  Avg factual acc  (0-4)  : 2.47
+  Avg completeness (0-2)  : 1.084
+  Avg no-halluc    (0-2)  : 1.589
+  Avg section cite (0-2)  : 1.163
+  Section citation rate   : 60.4%
+  Hallucination rate      : 32.7%
+  % score ≥ 7  (good)     : 49.0%
+  % score < 4  (failing)  : 14.9%
+
+── BY QA TYPE ───────────────────────────────────────────────
+  type                       n    avg   cite%   halluc%
+  ----------------------  ----  -----  ------  --------
+  explain_section           42   6.91   40.5%     21.4%
+  multi_hop                 41   5.46   51.2%     46.3%
+  scenario                  38   6.47   73.7%     31.6%
+  condition                 34   7.24   79.4%     20.6%
+  procedural                32   5.34   56.2%     50.0%
+  eligibility               10   5.90   60.0%     30.0%
+  exception                  5   7.60  100.0%      0.0%
+
+── WEAKEST SECTIONS  (min 2 test records) ───────────────────
+  Section 134       avg: 3.00
+  Section 181       avg: 3.00
+  Section 5         avg: 3.50
+  Section 306       avg: 3.50
+  Section 44        avg: 3.50
+
+── STRONGEST SECTIONS ───────────────────────────────────────
+  Section 22        avg: 10.00
+  Section 422       avg: 10.00
+  Section 100       avg: 9.00
+  Section 195       avg: 9.00
+  Section 474       avg: 9.00
+
+================================================================

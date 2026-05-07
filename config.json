@@ -1,0 +1,46 @@
+{
+  "project": {
+    "name": "lexitune",
+    "device": "cuda"
+  },
+
+  "paths": {
+    "root_dir": ".",
+    "data_dir": "data",
+
+    "input_files": {
+      "it_act": "data/input/it_2025.pdf"
+    },
+
+    "processed": {
+      "flat_sections": "data/processed/flat_sections.jsonl",
+      "qa_dataset": "data/processed/qa_dataset.jsonl",
+      "train": "data/processed/train.jsonl",
+      "test": "data/processed/test.jsonl"
+    }
+  },
+
+  "model": {
+    "base_model_dir": "models/llama_3_2_1b",
+    "finetuned_model_dir": "finetune/final_model",
+    "max_new_tokens": 512
+  },
+
+  "finetune": {
+    "cpt_adapter_dir": "finetune/cpt_adapter",
+    "sft_adapter_dir": "finetune/sft_adapter",
+    "final_model_dir": "finetune/final_model",
+    "training_log": "finetune/training_log.json"
+  },
+
+  "rag": {
+    "db_dir": "rag/chroma_db",
+    "chunks_path": "rag/chunks.jsonl",
+    "top_k": 3
+  },
+
+  "processing": {
+    "chunk_size": 512,
+    "chunk_overlap": 64
+  }
+}

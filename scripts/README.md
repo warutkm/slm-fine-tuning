@@ -37,6 +37,6 @@ This step is required only once per environment.
 ### 1.4 Run the following command to download the model:
 
 ```bash
-python scripts/download_llama_3_2_1b.py
+python scripts/download_llama_3_2_1b.py --config config.json
 ```
 * Paste copied token→ Press Enter → Done

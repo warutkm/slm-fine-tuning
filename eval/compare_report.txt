@@ -1,0 +1,21 @@
+========================================================================
+ITA LEGAL ASSISTANT — BASE  vs  FINE-TUNED + RAG  COMPARISON
+Judge: llama-3.3-70b-versatile    Matched records: 202
+========================================================================
+
+  Metric                           Base   FT+RAG    Delta  FT+RAG wins
+  ----------------------------  -------  -------  -------  -----------
+  Total score       (0-10)        6.272    4.599  -1.673         22%
+  Factual accuracy  (0-4)         2.426    0.634  -1.792          6%
+  Completeness      (0-2)         1.099    1.817  + 0.718         64%
+  No hallucination  (0-2)         1.579    1.762  + 0.183         30%
+  Section citation  (0-2)         1.168    0.386  -0.782         10%
+
+  Hallucination rate              0.322    0.119  -0.203  ↓ lower=better
+  Section citation rate           0.599    0.193  -0.406  ↑ higher=better
+
+  Score distribution:
+    ≥7 (good)         base= 43.6%  ft+rag= 11.9%  delta=-31.7%  ↑
+    <4 (failing)      base= 12.9%  ft+rag= 18.3%  delta=+5.4%  ↓
+
+========================================================================

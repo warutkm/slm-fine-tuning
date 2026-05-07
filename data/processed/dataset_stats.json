@@ -1,0 +1,14 @@
+{
+  "total_records": 1373,
+  "avg_approx_tokens": 800.7,
+  "by_type": {
+    "explain_section": 282,
+    "multi_hop": 276,
+    "procedural": 219,
+    "scenario": 257,
+    "condition": 231,
+    "exception": 39,
+    "eligibility": 69
+  },
+  "sections_covered": 354
+}
