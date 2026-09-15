@@ -4,7 +4,7 @@ judge_groq.py  —  Batched LLM-as-judge for base_eval.py
 Imported by base_eval.py — not intended to be run directly.
 
 Provides:
-  run_judge_batched()  — score predictions with Groq (llama3-70b-8192) in batches
+  run_judge_batched()  — score predictions with Groq (llama-3.3-70b-versatile) in batches
 
   - Batching reduces API calls from ~200 → ~10-20, staying within RPM limits.
   - The judge prompt is context-grounded: the model is instructed to evaluate

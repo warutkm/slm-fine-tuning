@@ -9,7 +9,7 @@ Evaluates three configurations on the same held-out test set:
 Pipeline steps :-
 split         Create stratified 85/15 train/test split (run ONCE before training).
 infer         Run model inference → predictions JSONL.
-judge         Score predictions with Groq llama3-70b-8192 LLM-judge (via judge_groq.py).
+judge         Score predictions with Groq llama-3.3-70b-versatile LLM-judge (via judge_groq.py).
 mock          Score with heuristic judge (no API key, for testing).
 report        Reprint a saved report.
 compare       Side-by-side delta table: base vs finetuned-rag.
@@ -98,7 +98,7 @@ RAG_REPORT_TXT          = EVAL_DIR / "rag_eval_report.txt"
 # Compare report
 COMPARE_REPORT_TXT      = EVAL_DIR / "compare_report.txt"
 
-# RAG index location (must match step4_rag.py)
+# RAG index location (must match rag.py)
 RAG_CHROMA_DIR          = Path(".") / "rag" / "chroma_db"
 RAG_COLLECTION          = "ita_2025"
 RAG_EMBED_MODEL         = "BAAI/bge-base-en-v1.5"
@@ -388,7 +388,7 @@ def run_inference_rag(
     except Exception as e:
         raise RuntimeError(
             f"ChromaDB collection not found at {RAG_CHROMA_DIR}.\n"
-            f"Run: python src/step4_rag.py build\nOriginal error: {e}"
+            f"Run: python src/rag.py build\nOriginal error: {e}"
         )
 
     done_ids: set[str] = set()

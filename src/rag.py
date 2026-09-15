@@ -3,17 +3,17 @@ Retrieval-Augmented Generation (RAG) Pipeline
 Builds and queries a vector database of legal text chunks.
 
 Components:
-  Chunker   – splits structured sections into 300-800 token chunks with overlap
-  Embedder  – sentence-transformers (BAAI/bge-small-en-v1.5; tiny, fast, CPU-ok)
+  Chunker   – splits structured sections into 100-800 token chunks with overlap
+  Embedder  – sentence-transformers (BAAI/bge-base-en-v1.5)
   VectorDB  – ChromaDB (local, persistent, no server needed)
-  Retriever – top-k MMR retrieval
+  Retriever – top-k vector similarity retrieval
 
 Run once to build index:
-    python rag.py build
+    python src/rag.py build
 
 Then use as a library:
     from rag import retrieve
-    chunks = retrieve("What is the deduction limit under section 80C?", k=4)
+    chunks = retrieve("What is the deduction limit under section 80C?", k=6)
 """
 
 import json

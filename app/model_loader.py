@@ -83,7 +83,7 @@ def get_rag_collection():
     if not CHROMA_DIR.exists():
         raise FileNotFoundError(
             f"ChromaDB index not found at {CHROMA_DIR}. "
-            "Run:  python src/step4_rag.py build"
+            "Run:  python src/rag.py build"
         )
     client = chromadb.PersistentClient(path=str(CHROMA_DIR))
     return (

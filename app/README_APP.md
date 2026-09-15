@@ -26,7 +26,7 @@ lexitune/
 |------|-------|---------------|
 | Base model | `models/llama_3_2_1b/` | Already downloaded |
 | Fine-tuned model | `finetune/final_model/` | Run `src/finetune.py` |
-| RAG index | `rag/chroma_db/` | `python src/step4_rag.py build` |
+| RAG index | `rag/chroma_db/` | `python src/rag.py build` |
 
 The app will show a clear error message in the UI if any of these are missing —
 it will not crash on startup.

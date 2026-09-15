@@ -46,7 +46,7 @@ log = logging.getLogger("lexitune")
 # CONFIG  
 class CFG:
     # Paths
-    BASE_MODEL       = "meta-llama/Llama-3.2-1B-Instruct"
+    BASE_MODEL       = "models/llama_3_2_1b" if Path("models/llama_3_2_1b").exists() else "meta-llama/Llama-3.2-1B-Instruct"
     CPT_RAW_TEXT     = "data/processed/ita_raw.txt"
     SFT_TRAIN_DATA   = "data/processed/train.jsonl"
     SFT_TEST_DATA    = "data/processed/test.jsonl"

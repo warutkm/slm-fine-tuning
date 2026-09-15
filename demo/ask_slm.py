@@ -52,15 +52,17 @@ def load_model(model_path):
 # =========================
 
 def build_prompt(conversation, system_prompt):
-    prompt = system_prompt + "\n\n"
+    prompt = (
+        f"<|begin_of_text|>"
+        f"<|start_header_id|>system<|end_header_id|>\n{system_prompt}<|eot_id|>"
+    )
 
     for turn in conversation:
-        if turn["role"] == "user":
-            prompt += f"User: {turn['content']}\n"
-        else:
-            prompt += f"Assistant: {turn['content']}\n"
+        role = turn["role"]
+        content = turn["content"]
+        prompt += f"<|start_header_id|>{role}<|end_header_id|>\n{content}<|eot_id|>"
 
-    prompt += "Assistant:"
+    prompt += "<|start_header_id|>assistant<|end_header_id|>\n"
     return prompt
 
 
@@ -97,13 +99,14 @@ def chat_loop(tokenizer, model, system_prompt, max_new_tokens):
             outputs = model.generate(
                 **inputs,
                 max_new_tokens=max_new_tokens,
-                temperature=0.7,
-                do_sample=True,
-                pad_token_id=tokenizer.eos_token_id
+                do_sample=False,
+                repetition_penalty=1.1,
+                eos_token_id=tokenizer.eos_token_id,
+                pad_token_id=tokenizer.eos_token_id,
             )
 
-        decoded = tokenizer.decode(outputs[0], skip_special_tokens=True)
-        assistant_reply = decoded.split("Assistant:")[-1].strip()
+        gen_tokens = outputs[0][inputs["input_ids"].shape[1]:]
+        assistant_reply = tokenizer.decode(gen_tokens, skip_special_tokens=True).strip()
 
         conversation.append(
             {"role": "assistant", "content": assistant_reply}
